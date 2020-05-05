@@ -22,10 +22,7 @@ import SessionInput from "./components/SessionInput.vue";
 var store = {
   debug: true,
   state: {
-    riders: [
-      { name: "nico", time: 10 },
-      { name: "gabe", time: 15 },
-    ],
+    riders: [],
     sessionTime: 0,
     multiplier: 1.2,
   },
@@ -62,6 +59,7 @@ export default {
 
 $font-stack: "Roboto Mono", monospace
 $font-stack-weight: 700
+$font-size: 2.5rem
 
 body
   color: $black
@@ -69,6 +67,7 @@ body
 #app
   font-family: $font-stack
   font-weight: $font-stack-weight
+  font-size: $font-size
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   text-align: center
@@ -77,6 +76,7 @@ body
 #app pre
   font-family: $font-stack
   font-weight: $font-stack-weight
+  font-size: $font-size
 
 #top
   display: flex

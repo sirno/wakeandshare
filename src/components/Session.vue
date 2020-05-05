@@ -44,7 +44,7 @@ export default {
 <style lang="sass" scoped>
 @import "../styles/colors.sass"
 hr
-  border: 2px solid $blue
+  border: 0.2rem solid $blue
 ul
   list-style-type: none
 </style>

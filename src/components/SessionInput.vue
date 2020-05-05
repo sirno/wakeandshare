@@ -28,13 +28,16 @@ export default {
 
 input
   background-color: $white
-  border: 2px solid $pink
-  -webkit-box-shadow: 2px 2px 2px $pink
-  box-shadow: 2px 2px 2px $pink
+  border: 0.2rem solid $pink
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $pink
+  box-shadow: 0.2rem 0.2rem 0.2rem $pink
+  &[type="number"]
+    font-size: 2rem
+    font-weight: 700
 
 input:focus
   background-color: $yellow
-  border: 2px solid $blue
-  -webkit-box-shadow: 2px 2px 2px $blue
-  box-shadow: 2px 2px 2px $blue
+  border: 0.2rem solid $blue
+  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $blue
+  box-shadow: 0.2rem 0.2rem 0.2rem $blue
 </style>
