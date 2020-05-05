@@ -20,7 +20,7 @@ import Session from "./components/Session.vue";
 import SessionInput from "./components/SessionInput.vue";
 
 var store = {
-  debug: true,
+  debug: false,
   state: {
     riders: [],
     sessionTime: 0,
