@@ -22,10 +22,14 @@ export default {
   props: ["store"],
   methods: {
     onSubmit: function() {
+      console.log(this.ride);
       if (this.ride.name.length == 0) return;
       if (this.ride.time < 1) return;
       this.store.addRider(this.ride);
-      this.ride = {};
+      this.ride = {
+        name: "",
+        time: 0
+      };
     }
   }
 };
