@@ -13,26 +13,31 @@
 export default {
   name: "sessionInput",
   props: {
-    store: Object,
+    store: Object
   },
   data: function() {
     return {
-      sessionTime: this.store.state.sessionTime,
+      sessionTime: this.store.state.sessionTime
     };
-  },
+  }
 };
 </script>
 
 <style lang="sass" scoped>
 @import "../styles/colors.sass"
+@import "../styles/style.sass"
 
+#session-input-time
+  width: 25rem
+  @media #{$small-query}
+    width: 15rem
 input
   background-color: $white
   border: 0.2rem solid $pink
   -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $pink
   box-shadow: 0.2rem 0.2rem 0.2rem $pink
   &[type="number"]
-    font-size: 2rem
+    font-size: $font-size-input
     font-weight: 700
 
 input:focus

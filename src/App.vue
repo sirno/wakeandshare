@@ -24,7 +24,7 @@ var store = {
   state: {
     riders: [],
     sessionTime: 0,
-    multiplier: 1.2,
+    multiplier: 1.2
   },
   addRider(rider) {
     if (this.debug) console.log("addRider triggered with: ", rider);
@@ -33,7 +33,7 @@ var store = {
   setSessionTime(time) {
     if (this.debug) console.log("setSessionTime triggered with: ", time);
     this.state.sessionTime = time;
-  },
+  }
 };
 
 export default {
@@ -43,23 +43,20 @@ export default {
     Riders,
     RideInput,
     Session,
-    SessionInput,
+    SessionInput
   },
   data: function() {
     return {
-      store: store,
+      store: store
     };
-  },
+  }
 };
 </script>
 
 <style lang="sass">
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap")
 @import "styles/colors.sass"
-
-$font-stack: "Roboto Mono", monospace
-$font-stack-weight: 700
-$font-size: 2.5rem
+@import "styles/style.sass"
 
 body
   color: $black
@@ -72,11 +69,15 @@ body
   -moz-osx-font-smoothing: grayscale
   text-align: center
   margin-top: 60px
+  @media #{$small-query}
+    font-size: $font-size-small
 
 #app pre
   font-family: $font-stack
   font-weight: $font-stack-weight
   font-size: $font-size
+  @media #{$small-query}
+    font-size: $font-size-small
 
 #top
   display: flex

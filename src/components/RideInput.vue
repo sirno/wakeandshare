@@ -1,12 +1,7 @@
 <template>
   <div id="ride-input">
     <form @submit.prevent>
-      <input
-        id="ride-input-name"
-        type="text"
-        v-model="ride.name"
-        placeholder="NAME"
-      />
+      <input id="ride-input-name" type="text" v-model="ride.name" placeholder="NAME" />
       <input id="ride-input-time" type="number" v-model.number="ride.time" />
       <input type="submit" @click="onSubmit()" value="Submit" />
     </form>
@@ -20,8 +15,8 @@ export default {
     return {
       ride: {
         name: "",
-        time: 0,
-      },
+        time: 0
+      }
     };
   },
   props: ["store"],
@@ -29,23 +24,22 @@ export default {
     onSubmit: function() {
       this.store.addRider(this.ride);
       this.ride = {};
-    },
-  },
+    }
+  }
 };
 </script>
 
 <style lang="sass" scoped>
 @import "../styles/colors.sass"
+@import "../styles/style.sass"
 
 #ride-input-name
   width: 8rem
-
 #ride-input-time
   width: 4rem
 
 input
   margin: 0.5rem
-  font-size: 1rem
   background-color: $white
   border: 0.2rem solid $pink
   -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $pink
@@ -53,14 +47,14 @@ input
   &[type="submit"]
     border: 0.2rem solid $green
     box-shadow: none
-    font-size: 2rem
-    font-weight: 700
+    font-size: $font-size-input
+    font-weight: $font-stack-weight
   &[type="text"]
-    font-size: 2rem
-    font-weight: 700
+    font-size: $font-size-input
+    font-weight: $font-stack-weight
   &[type="number"]
-    font-size: 2rem
-    font-weight: 700
+    font-size: $font-size-input
+    font-weight: $font-stack-weight
 input:focus
   background-color: $yellow
   border: 0.2rem solid $blue
