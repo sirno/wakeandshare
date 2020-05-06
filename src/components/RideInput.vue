@@ -23,7 +23,7 @@ export default {
   methods: {
     onSubmit: function() {
       if (this.ride.name.length == 0) return;
-      if (this.ride.length < 1) return;
+      if (this.ride.time < 1) return;
       this.store.addRider(this.ride);
       this.ride = {};
     }
