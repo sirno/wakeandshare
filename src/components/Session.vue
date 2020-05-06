@@ -42,7 +42,7 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-@import "../styles/colors.sass"
+@import ../styles/colors
 hr
   border: 0.2rem solid $blue
 ul

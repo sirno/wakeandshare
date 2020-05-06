@@ -1,7 +1,12 @@
 <template>
   <div id="ride-input">
     <form @submit.prevent>
-      <input id="ride-input-name" type="text" v-model="ride.name" placeholder="NAME" />
+      <input
+        id="ride-input-name"
+        type="text"
+        v-model="ride.name"
+        placeholder="NAME"
+      />
       <input id="ride-input-time" type="number" v-model.number="ride.time" />
       <input type="submit" @click="onSubmit()" value="Submit" />
     </form>
@@ -15,8 +20,8 @@ export default {
     return {
       ride: {
         name: "",
-        time: 0
-      }
+        time: 0,
+      },
     };
   },
   props: ["store"],
@@ -28,16 +33,16 @@ export default {
       this.store.addRider(this.ride);
       this.ride = {
         name: "",
-        time: 0
+        time: 0,
       };
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="sass" scoped>
-@import "../styles/colors.sass"
-@import "../styles/style.sass"
+@import ../styles/colors
+@import ../styles/font
 
 #ride-input-name
   width: 8rem
