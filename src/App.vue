@@ -21,6 +21,8 @@ import Session from "./components/Session.vue";
 import SessionInput from "./components/SessionInput.vue";
 import Settings from "./components/Settings.vue";
 
+const version_name = "cauliflower";
+
 const loadPersistentState = () =>
   JSON.parse(window.localStorage.getItem("state"));
 
@@ -30,14 +32,23 @@ const loadDefaultState = () => {
     riders: {},
     sessionTime: 0,
     multiplier: 1,
-    gatherFlag: true
+    gatherFlag: true,
   };
 };
 
 const loadState = () =>
   "state" in window.localStorage ? loadPersistentState() : loadDefaultState();
 
-var store = {
+const checkVersion = function() {
+  if (window.localStorage.getItem("version") !== version_name) {
+    window.localStorage.removeItem("state");
+    window.localStorage.setItem("version", version_name);
+  }
+};
+
+checkVersion();
+
+const store = {
   debug: true,
   state: loadState(),
   addRide: function(ride) {
@@ -66,7 +77,7 @@ var store = {
   reset: function() {
     this.state = loadDefaultState();
     this.updateStore();
-  }
+  },
 };
 
 export default {
@@ -77,13 +88,13 @@ export default {
     RideInput,
     Session,
     SessionInput,
-    Settings
+    Settings,
   },
   data: function() {
     return {
-      store: store
+      store: store,
     };
-  }
+  },
 };
 </script>
 
