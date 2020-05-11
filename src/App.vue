@@ -8,6 +8,7 @@
     <div id="input" title="input">
       <RideInput v-bind:store="store" />
       <SessionInput v-bind:store="store" />
+      <Settings v-bind:store="store" />
     </div>
   </div>
 </template>
@@ -18,21 +19,27 @@ import Riders from "./components/Riders.vue";
 import RideInput from "./components/RideInput.vue";
 import Session from "./components/Session.vue";
 import SessionInput from "./components/SessionInput.vue";
+import Settings from "./components/Settings.vue";
 
 var store = {
-  debug: false,
+  debug: true,
   state: {
     riders: [],
     sessionTime: 0,
     multiplier: 1.2,
+    gatherFlag: true,
   },
-  addRider(rider) {
+  addRider: function(rider) {
     if (this.debug) console.log("addRider triggered with: ", rider);
     this.state.riders.push(rider);
   },
-  setSessionTime(time) {
+  setSessionTime: function(time) {
     if (this.debug) console.log("setSessionTime triggered with: ", time);
     this.state.sessionTime = time;
+  },
+  toggleGatherFlag: function() {
+    if (this.debug) console.log("toggleGatherFlag triggered");
+    this.state.gatherFlag = !this.state.gatherFlag;
   },
 };
 
@@ -44,6 +51,7 @@ export default {
     RideInput,
     Session,
     SessionInput,
+    Settings,
   },
   data: function() {
     return {

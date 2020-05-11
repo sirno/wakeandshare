@@ -26,6 +26,7 @@ export default {
 <style lang="sass" scoped>
 @import ../styles/colors
 @import ../styles/font
+@import ../styles/mixins
 
 #session-input-time
   width: 25rem
@@ -34,15 +35,12 @@ export default {
 input
   background-color: $white
   border: 0.2rem solid $pink
-  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $pink
-  box-shadow: 0.2rem 0.2rem 0.2rem $pink
+  +shadow(0.2rem, $pink)
   &[type="number"]
     font-size: $font-size-input
     font-weight: 700
-
 input:focus
   background-color: $yellow
   border: 0.2rem solid $blue
-  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $blue
-  box-shadow: 0.2rem 0.2rem 0.2rem $blue
+  +shadow(0.2rem, $blue)
 </style>

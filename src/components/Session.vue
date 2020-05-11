@@ -8,7 +8,8 @@
     <br />
     <hr />
     {{ store.state.sessionTime }}
-    X {{ store.state.multiplier }} + {{ uniqueRiders }} = {{ totalPrice }}
+    X {{ store.state.multiplier }} + {{ uniqueRiders }} =
+    {{ Math.round(totalPrice) }}
   </div>
 </template>
 

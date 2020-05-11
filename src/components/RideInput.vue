@@ -43,6 +43,7 @@ export default {
 <style lang="sass" scoped>
 @import ../styles/colors
 @import ../styles/font
+@import ../styles/mixins
 
 #ride-input-name
   width: 8rem
@@ -53,8 +54,7 @@ input
   margin: 0.5rem
   background-color: $white
   border: 0.2rem solid $pink
-  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $pink
-  box-shadow: 0.2rem 0.2rem 0.2rem $pink
+  +shadow(0.2rem, $pink)
   &[type="submit"]
     border: 0.2rem solid $green
     box-shadow: none
@@ -66,9 +66,15 @@ input
   &[type="number"]
     font-size: $font-size-input
     font-weight: $font-stack-weight
+    --moz-appearance: textfield
+    :-webkit-outer-spin-button:
+      --webkit-appearance: none
+      margin: 0
+    :-webkit-inner-spin-button:
+      --webkit-appearance: none
+      margin: 0
 input:focus
   background-color: $yellow
   border: 0.2rem solid $blue
-  -webkit-box-shadow: 0.2rem 0.2rem 0.2rem $blue
-  box-shadow: 0.2rem 0.2rem 0.2rem $blue
+  +shadow(0.2rem, $blue)
 </style>
