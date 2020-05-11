@@ -3,7 +3,7 @@
     <input
       id="session-input-time"
       type="number"
-      v-model="sessionTime"
+      v-model.number="sessionTime"
       @change="store.setSessionTime(sessionTime)"
     />
   </div>
@@ -13,13 +13,13 @@
 export default {
   name: "sessionInput",
   props: {
-    store: Object,
+    store: Object
   },
   data: function() {
     return {
-      sessionTime: this.store.state.sessionTime,
+      sessionTime: this.store.state.sessionTime
     };
-  },
+  }
 };
 </script>
 

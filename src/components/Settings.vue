@@ -2,29 +2,32 @@
   <div id="settings">
     <p>
       Merge them
-      <Checkbox
-        @toggled="store.toggleGatherFlag()"
-        :checked="store.state.gatherFlag"
-      />
+      <Checkbox @toggled="store.toggleGatherFlag()" :checked="store.state.gatherFlag" />
+    </p>
+    <p>
+      R E S E T
+      <Button @clicked="store.reset()" />
     </p>
   </div>
 </template>
 
 <script>
 import Checkbox from "./Checkbox.vue";
+import Button from "./Button.vue";
 export default {
   name: "Settings",
   components: {
     Checkbox,
+    Button
   },
   props: {
-    store: Object,
+    store: Object
   },
   data: function() {
     return {
-      gatherFlag: this.store.state.gatherFlag,
+      gatherFlag: this.store.state.gatherFlag
     };
-  },
+  }
 };
 </script>
 
