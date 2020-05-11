@@ -24,14 +24,20 @@ import Settings from "./components/Settings.vue";
 var store = {
   debug: true,
   state: {
-    riders: [],
+    rides: [],
+    riders: {},
     sessionTime: 0,
     multiplier: 1.2,
-    gatherFlag: true,
+    gatherFlag: true
   },
-  addRider: function(rider) {
-    if (this.debug) console.log("addRider triggered with: ", rider);
-    this.state.riders.push(rider);
+  addRide: function(ride) {
+    if (this.debug) console.log("addRider triggered with: ", ride);
+    this.state.rides.push(ride);
+    this.state.riders = this.state.rides.reduce((riders, ride) => {
+      riders[ride.rider] =
+        ride.rider in riders ? riders[ride.rider] + ride.time : ride.time;
+      return riders;
+    }, {});
   },
   setSessionTime: function(time) {
     if (this.debug) console.log("setSessionTime triggered with: ", time);
@@ -40,7 +46,7 @@ var store = {
   toggleGatherFlag: function() {
     if (this.debug) console.log("toggleGatherFlag triggered");
     this.state.gatherFlag = !this.state.gatherFlag;
-  },
+  }
 };
 
 export default {
@@ -51,13 +57,13 @@ export default {
     RideInput,
     Session,
     SessionInput,
-    Settings,
+    Settings
   },
   data: function() {
     return {
-      store: store,
+      store: store
     };
-  },
+  }
 };
 </script>
 

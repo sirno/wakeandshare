@@ -1,8 +1,13 @@
 <template>
   <div id="session">
-    <ul id="costs-list">
-      <li v-for="(rider, index) in store.state.riders" :key="index">
-        <pre>{{ Math.round((totalPrice * rider.time) / totalTime) }}</pre>
+    <ul v-if="store.state.gatherFlag">
+      <li v-for="(time, rider) in store.state.riders" :key="rider">
+        <pre>{{ computePrice(time) }}</pre>
+      </li>
+    </ul>
+    <ul v-else>
+      <li v-for="(ride, index) in store.state.rides" :key="index">
+        <pre>{{ computePrice(ride.time) }}</pre>
       </li>
     </ul>
     <br />
@@ -17,28 +22,27 @@
 export default {
   name: "Session",
   props: {
-    store: Object,
+    store: Object
   },
   computed: {
     totalTime: function() {
-      return this.store.state.riders.reduce(
-        (prev, ride) => prev + ride.time,
-        0
-      );
+      return this.store.state.rides.reduce((prev, ride) => prev + ride.time, 0);
     },
     uniqueRiders: function() {
-      return this.store.state.riders.reduce(
-        (acc, val, idx, arr) => (acc += arr.indexOf(val) === idx ? 1 : 0),
-        0
-      );
+      return Object.keys(this.store.state.riders).length;
     },
     timePrice: function() {
       return this.store.state.sessionTime * this.store.state.multiplier;
     },
     totalPrice: function() {
       return this.timePrice + this.uniqueRiders;
-    },
+    }
   },
+  methods: {
+    computePrice(time) {
+      return Math.round((this.totalPrice * time) / this.totalTime);
+    }
+  }
 };
 </script>
 
