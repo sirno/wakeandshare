@@ -2,7 +2,9 @@
   <div id="session-input">
     <input
       id="session-input-time"
-      type="number"
+      type="text"
+      pattern="\d*"
+      inputmode="numeric"
       v-model.number="sessionTime"
       @change="store.setSessionTime(sessionTime)"
     />
@@ -36,9 +38,11 @@ input
   background-color: $white
   border: 0.2rem solid $pink
   +shadow(0.2rem, $pink)
-  &[type="number"]
+  &[type="text"]
     font-size: $font-size-input
     font-weight: 700
+    @media #{$small-query}
+      font-size: $font-size-small
 input:focus
   background-color: $yellow
   border: 0.2rem solid $blue
