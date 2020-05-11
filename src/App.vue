@@ -29,7 +29,7 @@ const loadDefaultState = () => {
     rides: [],
     riders: {},
     sessionTime: 0,
-    multiplier: 1.2,
+    multiplier: 1,
     gatherFlag: true
   };
 };
