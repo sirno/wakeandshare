@@ -31,6 +31,7 @@ export default {
       console.log(this.ride);
       if (this.ride.rider.length == 0) return;
       if (this.ride.time < 1) return;
+      this.ride.rider = this.ride.rider.trim()
       this.store.addRide(this.ride);
       this.ride = {
         rider: "",
